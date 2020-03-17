@@ -77,7 +77,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
         return
 
     if user_id == bot.id:
-        message.reply_text("You uhh...want me to punch myself?")
+        message.reply_text("How about i leave this chat huh?")
         return
 
     try:
@@ -111,7 +111,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
 
         return
 
-    message.reply_text("On it!")
+    message.reply_text(f"Okay!\nOne gban coming right up for {user_chat.first_name}.")
 
     start_time = time.time()
 
@@ -187,14 +187,14 @@ def gban(bot: Bot, update: Update, args: List[str]):
 
     if gban_time > 60:
         gban_time = round((gban_time / 60), 2)
-        message.reply_text(f"Done! This gban affected {gbanned_chats} chats, Took {gban_time} min")
+        message.reply_text(f"Done! This gban affected {gbanned_chats} chats.\nTook me {gban_time} min")
     else:
-        message.reply_text(f"Done! This gban affected {gbanned_chats} chats, Took {gban_time} sec")
+        message.reply_text(f"Done! This gban affected {gbanned_chats} chats.\nTook me {gban_time} sec")
 
     try:
         bot.send_message(user_id,
                          "You have been globally banned from all groups where I have administrative permissions."
-                         " If you think that this was a mistake, you may appeal your ban here: @OnePunchSupport",
+                         "If you think that this was a mistake, you may appeal your gban here: @OnePunchSupport",
                          parse_mode=ParseMode.HTML)
     except:
         pass  # bot probably blocked by user
