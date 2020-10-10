@@ -6,6 +6,9 @@ import telegram.ext as tg
 
 StartTime = time.time()
 
+with open('log.txt', 'r+') as f:
+    f.truncate(0)
+
 # enable logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
