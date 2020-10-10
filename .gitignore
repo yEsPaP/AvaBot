@@ -1,12 +1,12 @@
-tg_bot/config.py
+avabot/config.py
 *.pyc
 .idea/
 .project
 .pydevproject
 .directory
 .vscode
-tg_bot/modules/helper_funcs/temp.txt
-tg_bot/elevated_users.json
+avabot/modules/helper_funcs/temp.txt
+avabot/elevated_users.json
 start-3.6.bat
 kangsticker.png
 venv

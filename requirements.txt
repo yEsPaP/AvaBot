@@ -20,3 +20,4 @@ CurrencyConverter
 googletrans
 jikanpy
 speedtest-cli
+tswift

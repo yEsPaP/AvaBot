@@ -1,1 +1,2 @@
-### This is the older branch, this repo has shifted to a newer branch (the url of the new branch is same as the old one)
+### This will be the AVA bot branch
+Credits are mentioned in the respective modules, thanks to all of them
