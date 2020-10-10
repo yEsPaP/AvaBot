@@ -114,8 +114,8 @@ def test(bot: Bot, update: Update):
 
 @sudo_plus
 @run_async
-def log(update, context):
-    sendLogFile(context, update)
+def log(update):
+    sendLogFile(update)
 
 	
 @run_async
