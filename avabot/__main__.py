@@ -113,7 +113,7 @@ def test(bot: Bot, update: Update):
 
 @sudo_plus
 @run_async
-def bot_log(update)
+def bot_log(update):
 	with open("log.txt",'rb') as f:
 		bot.send_document(document=f, filename=f.name,
                                   reply_to_message_id=update.message.message_id,
