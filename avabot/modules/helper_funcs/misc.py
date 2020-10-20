@@ -114,7 +114,8 @@ def sendMessage(text: str, bot: Bot, update: Update):
                                     text=text, parse_mode=ParseMode.HTML)
 
 def sendLogFile(update):
-    with open('log.txt', 'rb') as f:
+    with open("log.txt", 'rb') as f:
         bot.send_document(document=f, filename=f.name,
                           reply_to_message_id=update.message.message_id,
                           chat_id=update.message.chat_id)
+                          
