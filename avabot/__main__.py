@@ -8,7 +8,6 @@ from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, F
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 from avabot.modules.helper_funcs.chat_status import sudo_plus
-from avabot.modules.helper_funcs.misc import sendLogFile
 from avabot import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
     ALLOW_EXCL
 # needed to dynamically load modules
@@ -114,8 +113,11 @@ def test(bot: Bot, update: Update):
 
 @sudo_plus
 @run_async
-def log(update):
-    sendLogFile(update)
+def bot_logs(update)
+	with open("log.txt",'rb') as f:
+		bot.send_document(document=f, filename=f.name,
+                                  reply_to_message_id=update.message.message_id,
+                                  chat_id=update.message.chat_id)
     
 @run_async
 def start(bot: Bot, update: Update, args: List[str]):
@@ -416,7 +418,7 @@ def main():
 
     donate_handler = CommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
-    log_handler = CommandHandler("logs", log)
+    log_handler = CommandHandler("logs", bot_log)
 
     # dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)

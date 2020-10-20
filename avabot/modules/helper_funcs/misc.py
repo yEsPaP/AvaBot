@@ -111,11 +111,4 @@ def is_module_loaded(name):
 def sendMessage(text: str, bot: Bot, update: Update):
     return bot.send_message(update.message.chat_id,
                                     reply_to_message_id=update.message.message_id,
-                                    text=text, parse_mode=ParseMode.HTML)
-
-def sendLogFile(update):
-    with open("log.txt", 'rb') as f:
-        bot.send_document(document=f, filename=f.name,
-                          reply_to_message_id=update.message.message_id,
-                          chat_id=update.message.chat_id)
-                          
+                                    text=text, parse_mode=ParseMode.HTML)                       
