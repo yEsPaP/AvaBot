@@ -14,6 +14,9 @@ def magisk(bot,update):
         "\n"
         "*Beta*":
         "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/beta.json",
+        "\n"
+        "*Canary*":
+        "https://raw.githubusercontent.com/topjohnwu/magisk_files/canary/canary.json",
     }
     releases = '*Latest Magisk Releases:*\n\n'
     for magisk_type, release_url in magisk_dict.items():
