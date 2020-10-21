@@ -1,32 +1,29 @@
-# Copyright (C) 2020 - 2020 KassemSYR. All rights reserved.
-# This file was part of Galaxy Helper bot.
-
+# Magisk Module- Module from AstrakoBot
+# Inspired from RaphaelGang's android.py
+# By DAvinash97
 from requests import get
 from telegram import Bot, Update, ParseMode
-from telegram.ext import run_async
-from avabot import dispatcher
-from avabot.modules.disable import DisableAbleCommandHandler
+from telegram.ext import Updater, CommandHandler, dispatcher
 
-@run_async
-def magisk(bot, update):
-    url = 'https://raw.githubusercontent.com/topjohnwu/magisk_files/'
-    releases = "*Latest Magisk Releases: *\n"
-    for magisk_type, path  in {"*Stable*":"master/stable", "*Beta*":"master/beta", "*Canary (debug)*":"canary/debug"}.items():
-        data = get(url + path + '.json').json()
+def magisk(bot,update):
+    magisk_dict = {
+        "*Stable*":
+        "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/stable.json",
+        "\n"
+        "*Beta*":
+        "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/beta.json",
+    }
+    releases = '*Latest Magisk Releases:*\n\n'
+    for magisk_type, release_url in magisk_dict.items():
+        data = get(release_url).json()
         releases += f'{magisk_type}:\n' \
-                f'》Installer - [Zip v{data["magisk"]["version"]}]({data["magisk"]["link"]}) \n' \
-                f'》Manager - [App v{data["app"]["version"]}]({data["app"]["link"]}) \n' \
-                f'》Uninstaller - [Uninstaller v{data["magisk"]["version"]}]({data["uninstaller"]["link"]}) \n'
-    bot.send_message(
-    chat_id=update.effective_message.chat_id,
-    text=releases,
-    parse_mode=ParseMode.MARKDOWN,
-    disable_web_page_preview=True
-    )
-
-MAGISK_HANDLER = DisableAbleCommandHandler("Magisk", magisk)
-dispatcher.add_handler(MAGISK_HANDLER)
-
-__mod_name__ = "Magisk"
-__command_list__ = ["magisk"]
-__handlers__ = [MAGISK_HANDLER]
+                    f'》 *Installer* - [Zip v{data["magisk"]["version"]}]({data["magisk"]["link"]}) \n' \
+                    f'》 *Manager* - [App v{data["app"]["version"]}]({data["app"]["link"]}) \n' \
+                    f'》 *Uninstaller* - [Uninstaller v{data["magisk"]["version"]}]({data["uninstaller"]["link"]}) \n'
+    bot.send_message(chat_id = update.effective_chat.id,
+                             text=releases,
+                             parse_mode=ParseMode.MARKDOWN,
+                             disable_web_page_preview=True)
+                             
+magisk_handler = CommandHandler(['magisk', 'root', 'su'], magisk)
+updater.dispatcher.add_handler(magisk_handler)
