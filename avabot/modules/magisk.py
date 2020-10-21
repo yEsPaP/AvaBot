@@ -26,4 +26,4 @@ def magisk(bot,update):
                              disable_web_page_preview=True)
                              
 magisk_handler = CommandHandler(['magisk', 'root', 'su'], magisk)
-updater.dispatcher.add_handler(magisk_handler)
+dispatcher.add_handler(magisk_handler)
