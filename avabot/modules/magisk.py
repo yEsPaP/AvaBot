@@ -31,5 +31,5 @@ magisk_handler = CommandHandler(['magisk', 'root', 'su'], magisk)
 dispatcher.add_handler(magisk_handler)
 
 __mod_name__ = "Magisk"
-__command_list__ = ["magisk"]
-__handlers__ = [MAGISK_HANDLER]
+__command_list__ = ["magisk", 'root', 'su']
+__handlers__ = [magisk_handler]
