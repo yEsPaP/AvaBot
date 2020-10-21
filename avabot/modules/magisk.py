@@ -3,7 +3,9 @@
 # By DAvinash97
 from requests import get
 from telegram import Bot, Update, ParseMode
-from telegram.ext import Updater, CommandHandler, dispatcher
+from telegram.ext import Updater, CommandHandler
+from avabot import dispatcher
+from avabot.modules.disable import DisableAbleCommandHandler
 
 def magisk(bot,update):
     magisk_dict = {
@@ -27,3 +29,7 @@ def magisk(bot,update):
                              
 magisk_handler = CommandHandler(['magisk', 'root', 'su'], magisk)
 dispatcher.add_handler(magisk_handler)
+
+__mod_name__ = "Magisk"
+__command_list__ = ["magisk"]
+__handlers__ = [MAGISK_HANDLER]
