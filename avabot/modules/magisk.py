@@ -7,17 +7,15 @@ from telegram.ext import Updater, CommandHandler
 from avabot import dispatcher
 from avabot.modules.disable import DisableAbleCommandHandler
 
+link = 'https://raw.githubusercontent.com/davinash97/magisk_files/'
+
 def magisk(bot,update):
     magisk_dict = {
-        "*Stable*":
-        "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/stable.json",
-        "\n"
-        "*Beta*":
-        "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/beta.json",
-        "\n"
-        "*Canary*":
-        "https://raw.githubusercontent.com/topjohnwu/magisk_files/canary/canary.json",
-    }
+            "*Stable*": "master/stable.json", "\n"
+            "*Beta*": "master/beta.json", "\n"
+            "*Canary*": "canary/canary.json",
+        }
+    
     releases = '*Latest Magisk Releases:*\n\n'
     for magisk_type, release_url in magisk_dict.items():
         data = get(release_url).json()
@@ -29,7 +27,10 @@ def magisk(bot,update):
                              text=releases,
                              parse_mode=ParseMode.MARKDOWN,
                              disable_web_page_preview=True)
-                             
+                        
+__help__ = """
+ - /magisk, /su, /root: fetches latest magisk.
+"""
 magisk_handler = CommandHandler(['magisk', 'root', 'su'], magisk)
 dispatcher.add_handler(magisk_handler)
 
