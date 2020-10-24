@@ -18,7 +18,7 @@ def magisk(bot,update):
     
     releases = '*Latest Magisk Releases:*\n\n'
     for magisk_type, release_url in magisk_dict.items():
-        data = get(release_url).json()
+        data = get(link + release_url).json()
         releases += f'{magisk_type}:\n' \
                     f'》 *Installer* - [Zip v{data["magisk"]["version"]}]({data["magisk"]["link"]}) \n' \
                     f'》 *Manager* - [App v{data["app"]["version"]}]({data["app"]["link"]}) \n' \
