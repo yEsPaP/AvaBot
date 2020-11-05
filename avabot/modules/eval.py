@@ -115,7 +115,7 @@ def do(func, bot, update):
 
 @dev_plus
 @run_async
-def clear(bot: Bot, update: Update):
+def clean(bot: Bot, update: Update):
     log_input(update)
     global namespaces
     if update.message.chat_id in namespaces:
@@ -125,10 +125,10 @@ def clear(bot: Bot, update: Update):
 
 EVAL_HANDLER = CommandHandler(('e', 'ev', 'eva', 'eval'), evaluate)
 EXEC_HANDLER = CommandHandler(('x', 'ex', 'exe', 'exec', 'py'), execute)
-CLEAR_HANDLER = CommandHandler('clear', clear)
+CLEAN_HANDLER = CommandHandler(('clean', clean)
 
 dispatcher.add_handler(EVAL_HANDLER)
 dispatcher.add_handler(EXEC_HANDLER)
-dispatcher.add_handler(CLEAR_HANDLER)
+dispatcher.add_handler(CLEAN_HANDLER)
 
 __mod_name__ = "Eval Module"
