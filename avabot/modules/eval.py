@@ -125,7 +125,7 @@ def clean(bot: Bot, update: Update):
 
 EVAL_HANDLER = CommandHandler(('e', 'ev', 'eva', 'eval'), evaluate)
 EXEC_HANDLER = CommandHandler(('x', 'ex', 'exe', 'exec', 'py'), execute)
-CLEAN_HANDLER = CommandHandler(('clean', clean)
+CLEAN_HANDLER = CommandHandler('clean', clean)
 
 dispatcher.add_handler(EVAL_HANDLER)
 dispatcher.add_handler(EXEC_HANDLER)
