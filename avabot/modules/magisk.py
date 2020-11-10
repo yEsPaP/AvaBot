@@ -34,7 +34,7 @@ def magisk(bot,update):
                              text=releases,
                              parse_mode=ParseMode.MARKDOWN,
                              disable_web_page_preview=True)
-    await sleep(30)
+    sleep(30)
     await out.delete()
                         
 __help__ = """
