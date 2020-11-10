@@ -2,7 +2,7 @@
 # Inspired from RaphaelGang's android.py
 # By DAvinash97
 from requests import get
-from telegram import Bot, Update, ParseMode
+from telegram import Bot, Update, ParseMode, run_async
 from telegram.ext import Updater, CommandHandler
 
 from avabot import dispatcher
@@ -14,7 +14,8 @@ blob = "https://raw.githubusercontent.com/davinash97/magisk_files/"
 # To fetch latest versions
 link = "https://raw.githubusercontent.com/topjohnwu/magisk_files/"
 
-async def magisk(bot,update):
+@run_async
+def magisk(bot,update):
     magisk_dict = {
             "*Stable*": "master/stable.json", "\n"
             "*Beta*": "master/beta.json", "\n"
