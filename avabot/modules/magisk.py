@@ -3,7 +3,7 @@
 # By DAvinash97
 from requests import get
 from telegram import Bot, Update, ParseMode
-from telegram.ext import Updater, CommandHandler, run_async
+from telegram.ext import Updater, CommandHandler
 
 from avabot import dispatcher
 from avabot.modules.disable import DisableAbleCommandHandler
@@ -14,8 +14,7 @@ blob = "https://raw.githubusercontent.com/davinash97/magisk_files/"
 # To fetch latest versions
 link = "https://raw.githubusercontent.com/topjohnwu/magisk_files/"
 
-@run_async
-def magisk(bot,update):
+async def magisk(bot,update):
     magisk_dict = {
             "*Stable*": "master/stable.json", "\n"
             "*Beta*": "master/beta.json", "\n"
@@ -34,8 +33,8 @@ def magisk(bot,update):
                              text=releases,
                              parse_mode=ParseMode.MARKDOWN,
                              disable_web_page_preview=True)
-    sleep(30)
-    out.delete()
+    await sleep(30)
+    await out.delete()
                         
 __help__ = """
  - /magisk, /su, /root: fetches latest magisk.
