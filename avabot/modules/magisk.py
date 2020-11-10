@@ -34,8 +34,8 @@ def magisk(bot,update):
                              text=releases,
                              parse_mode=ParseMode.MARKDOWN,
                              disable_web_page_preview=True)
-    sleep(30)
-    await out.delete()
+sleep(30)
+out.delete()
                         
 __help__ = """
  - /magisk, /su, /root: fetches latest magisk.
