@@ -2,8 +2,9 @@
 # Inspired from RaphaelGang's android.py
 # By DAvinash97
 from requests import get
-from telegram import Bot, Update, ParseMode, run_async
-from telegram.ext import Updater, CommandHandler
+from telegram import Bot, Update, ParseMode
+from telegram.ext import Updater, CommandHandler, run_async
+
 
 from avabot import dispatcher
 from avabot.modules.disable import DisableAbleCommandHandler
