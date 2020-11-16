@@ -17,21 +17,20 @@ def magisk(bot,update):
             "*Beta*": "master/beta.json", "\n"
             "*Canary*": "canary/canary.json",
         }.items()
-    
+
     releases = '*Latest Magisk Releases:*\n\n'
     for magisk_type, release_url in magisk_dict:
         for Canary in magisk_dict:
             canary = "https://github.com/topjohnwu/magisk_files/raw/canary/"
         data = get(link + release_url).json()
         releases += f'{magisk_type}:\n' \
-                    f'》 *Installer* - [{version["magisk"]["version"]} ({data["magisk"]["versionCode"]})]({data["magisk"]["link"]}) \n' \
-                    f'》 *Manager* - [{version["app"]["version"]} ({data["app"]["versionCode"]})]({data["app"]["link"]}) \n' \
-                    f'》 *Uninstaller* - [Uninstaller {version["magisk"]["version"]} ({data["magisk"]["versionCode"]})]({data["uninstaller"]["link"]}) \n'
+                    f'》 *Installer* - [{data["magisk"]["version"]} ({data["magisk"]["versionCode"]})]({data["magisk"]["link"]}) \n' \
+                    f'》 *Manager* - [{data["app"]["version"]} ({data["app"]["versionCode"]})]({data["app"]["link"]}) \n' \
+                    f'》 *Uninstaller* - [Uninstaller {data["magisk"]["version"]} ({data["magisk"]["versionCode"]})]({data["uninstaller"]["link"]}) \n'
     out = bot.send_message(chat_id = update.effective_chat.id,
                              text=releases,
                              parse_mode=ParseMode.MARKDOWN,
                              disable_web_page_preview=True)
-                        
 __help__ = """
  - /magisk, /su, /root: fetches latest magisk.
 """
