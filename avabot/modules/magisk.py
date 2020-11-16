@@ -5,14 +5,10 @@ from requests import get
 from telegram import Bot, Update, ParseMode
 from telegram.ext import Updater, CommandHandler
 
-
 from avabot import dispatcher
 from avabot.modules.disable import DisableAbleCommandHandler
 from asyncio import sleep
 
-# To fetch latest files
-blob = "https://raw.githubusercontent.com/davinash97/magisk_files/"
-# To fetch latest versions
 link = "https://raw.githubusercontent.com/topjohnwu/magisk_files/"
 
 def magisk(bot,update):
@@ -20,12 +16,13 @@ def magisk(bot,update):
             "*Stable*": "master/stable.json", "\n"
             "*Beta*": "master/beta.json", "\n"
             "*Canary*": "canary/canary.json",
-        }
+        }.items()
     
     releases = '*Latest Magisk Releases:*\n\n'
-    for magisk_type, release_url in magisk_dict.items():
+    for magisk_type, release_url in magisk_dict:
+        for Canary in magisk_dict:
+            canary = "https://github.com/topjohnwu/magisk_files/raw/canary/"
         data = get(blob + release_url).json()
-        version = get(link + release_url).json()
         releases += f'{magisk_type}:\n' \
                     f'》 *Installer* - [{version["magisk"]["version"]} ({data["magisk"]["versionCode"]})]({data["magisk"]["link"]}) \n' \
                     f'》 *Manager* - [{version["app"]["version"]} ({data["app"]["versionCode"]})]({data["app"]["link"]}) \n' \
