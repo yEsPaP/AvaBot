@@ -22,7 +22,7 @@ def magisk(bot,update):
     for magisk_type, release_url in magisk_dict:
         for Canary in magisk_dict:
             canary = "https://github.com/topjohnwu/magisk_files/raw/canary/"
-        data = get(blob + release_url).json()
+        data = get(link + release_url).json()
         releases += f'{magisk_type}:\n' \
                     f'》 *Installer* - [{version["magisk"]["version"]} ({data["magisk"]["versionCode"]})]({data["magisk"]["link"]}) \n' \
                     f'》 *Manager* - [{version["app"]["version"]} ({data["app"]["versionCode"]})]({data["app"]["link"]}) \n' \
