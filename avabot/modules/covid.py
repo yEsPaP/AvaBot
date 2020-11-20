@@ -4,7 +4,7 @@ from telegram.ext import run_async
 from avabot import dispatcher
 from avabot.modules.disable import DisableAbleCommandHandler
 
-def covid_19(bot, update, args: List[str])
+def covid_19(bot, update, args: List[str]):
     msg = update.effective_message
     covid = Covid(source="worldometers")
     query = " ".join(args)
