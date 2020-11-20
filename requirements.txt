@@ -21,3 +21,4 @@ googletrans
 jikanpy
 speedtest-cli
 tswift
+covid
