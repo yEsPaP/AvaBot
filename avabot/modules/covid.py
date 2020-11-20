@@ -13,7 +13,7 @@ def covid_19(bot, update, args: List[str]):
         msg.reply_text("Which Country You mean?")
         return
     else:
-        data = covid.get_status_by_country_name(args)
+        data = covid.get_status_by_country_name(query)
         if data:
             covid_data  = f"*Corona Virus Info:*\n"
             covid_data += f"  *Country*          : `{data['country']}` \n"
