@@ -16,15 +16,15 @@ def covid_19(bot, update, args: List[str]):
         data = covid.get_status_by_country_name(query)
         if data:
             covid_data  = f"*Corona Virus Info:*\n"
-            covid_data += f"  *Country*          : `{data['country']}` \n"
-            covid_data += f"  *Confirmed*        : `{data['confirmed']}` \n"
-            covid_data += f"  *Death*            : `{data['deaths']}` \n"
-            covid_data += f"  *Active*           : `{data['active']}` \n"
-            covid_data += f"  *Recovered*        : `{data['recovered']}` \n"
-            covid_data += f"  *Critical Stage*   : `{data['critical']}` \n\n"
-            covid_data += f"  *New Cases*        : `{data['new_cases']}` \n"
-            covid_data += f"  *New Deaths*       : `{data['new_deaths']}` \n\n"
-            covid_data += f"  *Total Population* : `{data['population']}` \n\n"
+            covid_data += f"*Country*          : `{data['country']}` \n"
+            covid_data += f"*Confirmed*        : `{data['confirmed']}` \n"
+            covid_data += f"*Death*            : `{data['deaths']}` \n"
+            covid_data += f"*Active*           : `{data['active']}` \n"
+            covid_data += f"*Recovered*        : `{data['recovered']}` \n"
+            covid_data += f"*Critical Stage*   : `{data['critical']}` \n\n"
+            covid_data += f"*New Cases*        : `{data['new_cases']}` \n"
+            covid_data += f"*New Deaths*       : `{data['new_deaths']}` \n\n"
+            covid_data += f"*Total Population* : `{data['population']}` \n\n"
             covid_data += f"Data Provided by [Worldometers](https://www.worldometers.info/coronavirus)"
             bot.send_message(chat_id = update.effective_chat.id,
                              text=covid_data,
