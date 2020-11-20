@@ -26,7 +26,7 @@ def covid_19(bot, update, args: List[str]):
             covid_data += f"  *New Cases*        : `{data['new_cases']}` \n"
             covid_data += f"  *New Deaths*       : `{data['new_deaths']}` \n"
             covid_data += f"  *Total Population* : `{data['population']}` \n\n"
-            covid_data += f"Data Provided by [*Worldometers*](https://www.worldometers.info/coronavirus)"
+            covid_data += f"Data Provided by [Worldometers](https://www.worldometers.info/coronavirus)"
             bot.send_message(chat_id = update.effective_chat.id,
                              text=covid_data,
                              parse_mode=ParseMode.MARKDOWN,
@@ -36,8 +36,9 @@ def covid_19(bot, update, args: List[str]):
 
 __help__ = """
 Need Covid-19 status?
+
 *Available Commands:*
--/covid <country name>: To get you country's covid-19 status
+-/covid <country name>: To get your country's covid-19 status
 """
 
 __mod_name__ = "Covid"
