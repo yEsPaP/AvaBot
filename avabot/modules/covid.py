@@ -1,4 +1,5 @@
 from covid import Covid
+from typing import List
 from telegram import ParseMode, Update, Bot, Message, Chat
 from telegram.ext import run_async
 from avabot import dispatcher
